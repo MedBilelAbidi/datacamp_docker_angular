@@ -16,14 +16,14 @@ stage ('Docker Build') {
  sh 'docker build -t mohamed311/astnvilla:${DOCKER_TAG} .'
  }
  }
- stage ('DockerHub Push') {
-steps {
-withCredentials([string(credentialsId: 'DockerHubPassword', variable: 'DockerHubPassword')]) {
- sh 'sudo docker login -u mohamed311 -p ${DockerHubPassword}'
- }
- sh 'sudo docker push  mohamed311/astnvilla:${DOCKER_TAG}'
- }
-}
+//  stage ('DockerHub Push') {
+// steps {
+// withCredentials([string(credentialsId: 'DockerHubPassword', variable: 'DockerHubPassword')]) {
+//  sh 'sudo docker login -u mohamed311 -p ${DockerHubPassword}'
+//  }
+//  sh 'sudo docker push  mohamed311/astnvilla:${DOCKER_TAG}'
+//  }
+// }
 }
 }
 def getVersion(){
