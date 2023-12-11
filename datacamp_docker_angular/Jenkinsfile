@@ -11,7 +11,11 @@ steps {
 git  'https://github.com/MedBilelAbidi/datacamp_docker_angular.git'
 }
 }
-
+stage ('Docker Build') {
+ steps {
+ sh 'docker build -t mohamed311/astnvilla:${DOCKER_TAG}.'
+ }
+ }
 }
 }
 def getVersion(){
