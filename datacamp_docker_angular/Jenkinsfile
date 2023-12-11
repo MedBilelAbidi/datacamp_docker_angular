@@ -18,8 +18,7 @@ stage ('Docker Build') {
  }
  stage ('DockerHub Push') {
 steps {
- withCredentials([string(credentialsId: 'DockerHubPassword', variable:
-'DockerHubPassword')]) {
+withCredentials([string(credentialsId: 'DockerHubPassword', variable: 'DockerHubPassword')]) {
  sh 'sudo docker login -u mohamed311 -p ${DockerHubPassword}'
  }
  sh 'sudo docker push  mohamed311/astnvilla:${DOCKER_TAG}'
